@@ -1,9 +1,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<title> HUNTERBASE_AREA09_EVENT.01 </title>
+		<title> story1 </title>
 		//페이지 상단 타이틀
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		// J쿼리 버전 연결 (중요) 새 버전 연결 필요 
 		<script>
 			var point = 0;
@@ -56,13 +56,13 @@
 			function talk(){
 				var len = talkArray.length;
 				if(point == len){
-					$("#back").css({'background-image': 'url(./event/배경_젤리도그1.png)'});
 					$("#talk").html("");
 					$("#main").show();
 					$("#console").hide();
 					chgChar("temp");
 				}
 				if(point == 0){
+				$("#back").css({'background-image': 'url(./event/배경_젤리도그1.png)'});
 					chgChar("사키_01");
 				}
 				if(point == 1){
@@ -108,15 +108,15 @@
 			function chgChar(chrNm){
 				if(chrNm != "temp"){
 					var chrNmSub = chrNm.substring(0,2);
-					if(chrNmSub == "tr"){
+					if(chrNmSub == "사키"){
 						$("#chaName").html("사키");
-					}else if(chrNmSub == "st"){
+					}else if(chrNmSub == "염성"){
 						$("#chaName").html("염성화");
-					}else if(chrNmSub == "in"){
+					}else if(chrNmSub == "호세"){
 						$("#chaName").html("호세");
-					}else if(chrNmSub == "a_"){
+					}else if(chrNmSub == "흘레"){
 						$("#chaName").html("흘레나");
-					}else if(chrNmSub == "qt"){
+					}else if(chrNmSub == "데미"){
 						$("#chaName").html("데미안");
 					}
 					$("#lchar").html("");
@@ -151,12 +151,12 @@
 			<div id="lchar" style="position:absolute; right:100px; bottom:270px;">
 				<img src="./event/0.png"> 
 			</div>
-			<!-- 대화창 시작라인-->
+			<!-- 대화창 시작라인--> 
 			<div id="console" style="width:1042px; height:266px; background:url('./event/bg_print.png'); margin-left:20px; margin-right:20px; position:absolute; bottom:10px; color:rgb(0, 0, 0);">
 				<b><div id="chaName" style="width:100px; margin-left:30px; margin-top:30px; font-size:16pt"">나레이션</div></b> 
 				<br>
 				<div id="talk" style="margin-left:30px;">
-				이클립스로 제작하는 자캐커뮤니티 스토리 진행 테스트를 시작합니다. <br> 도와주신 네너루+밥민기+헤케님 감사. 그림과 스크립트는 커트님입니다. 심지어 배경도 3d소재를 구매한거임. <br><br>내가한건 .. 코딩뿐 ... 사이버 바느질...
+				이클립스로 제작하는 자캐커뮤니티 스토리 진행 테스트를 시작합니다. <br> 도와주신 네너루+밥민기+헤케님 감사. 그림과 스크립트는 커트님입니다. 심지어 배경도 3d소재를 구매한거임. <br><br>내가한건 .. 코딩뿐 ... 사이버 바느질...<br>전체적인 설정 만지기는 요코님이 도와주셨고 이 양식자체가 그분의 커뮤니티에 쓰였던 양식의 모체입니다. 
 				</div>
 				<div id="cursor" style="position:absolute; right:20px; bottom:15px;">
 					<img src="./event/cursor.png"> 
