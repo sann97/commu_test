@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title> HUNTERBASE_AREA09_EVENT.01 </title>
+		//페이지 상단 타이틀
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		// J쿼리 버전 연결 (중요) 새 버전 연결 필요 
+		<script>
+			var point = 0;
+			var talkArray = new Array();
+			var showFlag = false;
+			talkArray = [
+				//0 대사 배열 (2번째 대사부터)
+				"야이 등신 새끼야!!<br>설명한지 5초도 안 지났어!!<br><br>그거 하나 못 외워?"
+			
+				//1
+			  , "못 외웠다기 보다는, 머리에 넣지 않았다.<br>네 녀석은 남 가르치는대는 소질이 없군."
+				
+				//2
+			  , "네 녀석은 머리에 풋볼 밖에 없냐?<br>인사와 자기소개정도 알려주는데 그거 하나 제대로 못 외워?"
+			  
+				//3
+			  , "안 외운거다,네 녀석이 가르친걸 머리에 넣지 않았으니까."
+				
+				//4
+			  , "음... (보통 그걸... 못 외웠다 하지 않나?)"
+				
+				//5
+			  , "지금 같은 목소리 좋군요 사키씨. <br> 지금 같은 목소리로 우리에게 가르쳐준다면 더 귀에 익을 것 같아요."
+				
+				//6
+			  , "음침한 목소리로 알려주니까.. 잘 안들리긴 하지."
+				
+				//7
+			  , "시끄러워!! 데미안, 너는 머리도 좋다는 녀석이 알로라와 칼로스어도 모르는거냐!?"
+				
+			  ];
+			$(document).ready(function() {
+				// 
+				$("#console").click(function(){
+					talk();
+				});
+				//스킵버튼함수->페이지를 마지막으로 보냄
+				$("#skip").click(function(){ 
+					point = 8;
+					talk();
+				});
+				$("#main").click(function(){
+					location.href="http://area09.net/main.htm"; 
+				});
+				setInterval("showHide()", 300);
+			});
+			
+			// 대화창 (대사에 따른 캐릭터 이미지 배열)
+			// 캐릭터 스탠드 이름_번호로 정리 ->번호에 따라 캐릭터 스탠딩을 다르게 변경 가능
+			function talk(){
+				var len = talkArray.length;
+				if(point == len){
+					$("#back").css({'background-image': 'url(./event/배경_젤리도그1.png)'});
+					$("#talk").html("");
+					$("#main").show();
+					$("#console").hide();
+					chgChar("temp");
+				}
+				if(point == 0){
+					chgChar("사키_01");
+				}
+				if(point == 1){
+					chgChar("염성화_01");
+				}
+				if(point == 2){
+					chgChar("사키_01");
+				}
+				if(point == 3){
+					chgChar("염성화_01");
+				}
+				if(point == 4){
+					chgChar("호세_01");
+				}
+				if(point == 5){
+					chgChar("데미안_01");
+				}
+				if(point == 6){
+					chgChar("흘레나_01");
+				}
+				if(point == 7){
+					chgChar("사키_01");
+				}
+
+				if(point < len){
+					$("#talk").html("");
+					$("#talk").html(talkArray[point]);
+					point++;
+				}
+			}
+
+			function showHide(){
+				if(showFlag){
+					$("#cursor").hide();
+					showFlag = false;
+				}else{
+					$("#cursor").show();
+					showFlag = true;
+				}
+			}
+			
+			// 캐릭터 성명 배열
+			function chgChar(chrNm){
+				if(chrNm != "temp"){
+					var chrNmSub = chrNm.substring(0,2);
+					if(chrNmSub == "tr"){
+						$("#chaName").html("사키");
+					}else if(chrNmSub == "st"){
+						$("#chaName").html("염성화");
+					}else if(chrNmSub == "in"){
+						$("#chaName").html("호세");
+					}else if(chrNmSub == "a_"){
+						$("#chaName").html("흘레나");
+					}else if(chrNmSub == "qt"){
+						$("#chaName").html("데미안");
+					}
+					$("#lchar").html("");
+					$("#lchar").html("<img src='./event/"+chrNm+".png'>");
+				}else{
+					$("#chaName").html("");
+					$("#lchar").html("");
+				}
+			}
+
+		</script>
+        <style>
+			*{padding:0px; margin:0px; }
+		</style>
+ </head>
+ <body bgcolor="black">
+
+	//오디오함수->현재 작동 안함 / 코드 변경되었는지, 새로운 함수 적용해야할지 확인이 필요함!
+	<audio src="./bgm.mp3" autoplay="autoplay" type="audio/mpeg" loop>
+	</audio>
+
+	<div style="width:100%; height:100%;">
+		<!-- 배경 이미지 (전체 배경 사이즈 지정 가능)-->
+		<div id="back" style="width:1102px; height:1000px; position:relative; max-width:800px;  min-width:1102px; background:url('./event/bg_00.png'); font-size:12pt; margin:0 auto;" >
+			<div id="skip" style="position:absolute; left:30px; top:50px;">
+				<img src="./event/skip.png"> 
+			</div>
+			<div id="main" style="position:absolute; left:480px; top:420px; display:none">
+				<img src="./event/main.png"> 
+			</div>
+			<!-- 왼쪽 캐릭터 스탠딩 -->
+			<div id="lchar" style="position:absolute; right:100px; bottom:270px;">
+				<img src="./event/0.png"> 
+			</div>
+			<!-- 대화창 시작라인-->
+			<div id="console" style="width:1042px; height:266px; background:url('./event/bg_print.png'); margin-left:20px; margin-right:20px; position:absolute; bottom:10px; color:rgb(0, 0, 0);">
+				<b><div id="chaName" style="width:100px; margin-left:30px; margin-top:30px; font-size:16pt"">나레이션</div></b> 
+				<br>
+				<div id="talk" style="margin-left:30px;">
+				이클립스로 제작하는 자캐커뮤니티 스토리 진행 테스트를 시작합니다. <br> 도와주신 네너루+밥민기+헤케님 감사. 그림과 스크립트는 커트님입니다. 심지어 배경도 3d소재를 구매한거임. <br><br>내가한건 .. 코딩뿐 ... 사이버 바느질...
+				</div>
+				<div id="cursor" style="position:absolute; right:20px; bottom:15px;">
+					<img src="./event/cursor.png"> 
+				</div>
+			<div>
+		</div>
+	</div>
+ </body>
+</html>
