@@ -92,6 +92,9 @@
 			  //25
 			  , "아하하, 이리와 ..."
 			  
+			  //26
+			  , "미안하다 해장국먹으려고어그로끌었다...해장국 폼 실화냐? 미쳤다."
+			  
 			  
 				
 			  ];
@@ -220,6 +223,9 @@
 				if(point == 25){
 					chgChar("히와리_01");
 					
+				if(point == 26){
+					chgChar("네너루_01");	
+					
 				}
 
 				if(point < len){
@@ -263,6 +269,8 @@
 						$("#chaName").html("나레이션");
 					}else if(chrNmSub == "히와"){
 						$("#chaName").html("히와리");
+					}else if(chrNmSub == "네너"){
+						$("#chaName").html("네너루");
 					}
 					$("#lchar").html("");
 					$("#lchar").html("<img src='./event/"+chrNm+".png'>");
