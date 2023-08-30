@@ -95,6 +95,9 @@
 			  //26
 			  , "미안하다 해장국먹으려고어그로끌었다...해장국 폼 실화냐? 미쳤다."
 			  
+			  //27
+			  , "이번엔 네가 술래야. 나를 잡아봐."
+			  
 			  
 				
 			  ];
@@ -227,6 +230,11 @@
 				if(point == 26){
 					chgChar("네너루_01");	
 					
+				}	
+				if(point == 27){
+					chgChar("카미키즈_03");
+					
+					
 				}
 
 				if(point < len){
@@ -272,6 +280,8 @@
 						$("#chaName").html("히와리");
 					}else if(chrNmSub == "네너"){
 						$("#chaName").html("네너루");
+					}else if(chrNmSub == "카미"){
+						$("#chaName").html("카미키즈");
 					}
 					$("#lchar").html("");
 					$("#lchar").html("<img src='./event/"+chrNm+".png'>");
